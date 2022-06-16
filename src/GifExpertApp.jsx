@@ -17,7 +17,10 @@ export const GifExpertApp = () => {
       <h1>GifExpertApp</h1>
 
       {/* Input */}
-      <AddCategory />
+      <AddCategory 
+        categories={ categories }
+        setCategories={ setCategories }
+      />
 
       {/* Listado de Gif (Grid de Gifs) */}
       {/* <button onClick={ onAddCategory } >Agregar</button> */}
