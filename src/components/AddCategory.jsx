@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export const AddCategory = ({ categories, setCategories }) => {  
+export const AddCategory = ({ onNewCategory }) => {  
 
   // States
   const [inputValue, setinputValue] = useState('')
@@ -17,7 +17,8 @@ export const AddCategory = ({ categories, setCategories }) => {
     if( inputValue.trim().length <=1 ) return
       
     // setCategories( [...categories, inputValue] ); // pasando por props las categories
-    setCategories((cat) => [ inputValue, ...cat ]);  // usando el callback de la funcion setCategories
+    // setCategories((cat) => [ inputValue, ...cat ]);  // usando el callback de la funcion setCategories
+    onNewCategory(inputValue.trim())
     setinputValue('');
         
   }
