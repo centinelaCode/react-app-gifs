@@ -9,6 +9,9 @@ export const GifExpertApp = () => {
   const onAddCategory = ( newCategory ) => {
     // console.log(newCategory);
 
+    // validación para no permitir categorias repetidas
+    if( categories.includes(newCategory) ) return;
+
     setCategories( [ newCategory, ...categories ] );
     // setCategories( cat => [...cat, "Valorant"] );  // por medio del callback de useState
   }
