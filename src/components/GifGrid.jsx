@@ -1,25 +1,16 @@
-
 // llamada a la API por fuera del copponente
-import { useEffect, useState } from 'react';
-import { getGifs } from '../helpers/getGifs';
+import { useFecthGifs } from '../hooks/useFecthGifs';
 import { GifItem } from './GifItem';
+
 
 
 export const GifGrid = ({ category }) => {
 
-  const [images, setImages] = useState([]);
+  // my Custo Hook para la petición a la API
+  const { images, isLoading } = useFecthGifs( category );
+  // console.log( isLoading );
 
-  const getImages = async () => {
-    const newImages = await getGifs(category);
-    setImages(newImages);
-    // console.log(images)
-  }
-    
-  useEffect(() => {
-    getImages();
-  },[])
 
- 
   return (
     <>
       <h3>{ category }</h3>
