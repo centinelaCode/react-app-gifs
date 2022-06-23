@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 
 export const GifItem = ({ title, url, id }) => {  
   // console.log(title, url, id)
-  console.log(url)
+  // console.log(url)
 
   return (
     <div className="card">
