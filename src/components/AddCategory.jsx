@@ -1,4 +1,5 @@
 import { useState } from "react"
+import PropTypes from 'prop-types'
 
 export const AddCategory = ({ onNewCategory }) => {  
 
@@ -11,6 +12,7 @@ export const AddCategory = ({ onNewCategory }) => {
   }
 
   const onSubmit = (e) => {
+    // console.log('Hola mundo desde submit')
     e.preventDefault();
 
     // valida que no se permita agregar una string vacio
@@ -18,14 +20,15 @@ export const AddCategory = ({ onNewCategory }) => {
       
     // setCategories( [...categories, inputValue] ); // pasando por props las categories
     // setCategories((cat) => [ inputValue, ...cat ]);  // usando el callback de la funcion setCategories
-    onNewCategory(inputValue.trim())
     setinputValue('');
+    onNewCategory(inputValue.trim())
         
   }
 
   return (
     <form 
       onSubmit={ (e) => onSubmit(e) }  // podemos enviar solo la referencia { onSubmit } 
+      aria-label="form"
     >
       <input 
         type="text"
@@ -37,3 +40,7 @@ export const AddCategory = ({ onNewCategory }) => {
   )
 }
  
+
+AddCategory.propTypes = {
+  onNewCategory: PropTypes.func.isRequired
+}
